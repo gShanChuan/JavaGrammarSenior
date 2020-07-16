@@ -13,4 +13,5 @@ public class KeyMap {
  * 4.提示构造器参数： ctrl+p
  * 5.Generate：Alt+Insert
  * 6.idea搜索jar中的类:Ctrl+N
+ * 7.返回上次跳转的位置 Back/Forward: ctrl+alt+方向键
  */
