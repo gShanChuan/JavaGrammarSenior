@@ -8,6 +8,33 @@ import org.junit.Test;
  */
 
 public class StringTest {
+
+    /*
+    不同拼接的方式对比：
+        1.常量与常量的拼接结果在常量池。且常量池中不会存在相同内容的常量。
+        2.只要其中有一个是变量，结果就在堆中
+        3.如果拼接的结果调用intern()方法，返回值就在常量池中
+     */
+    @Test
+    public void test3(){
+        String s1 = "javaee";
+        String s2 = "hadoop";
+
+        String s3 = "javaeehadoop";
+        String s4 = "javaee"+"hadoop";
+        String s5 = s1+"hadoop";
+        String s6 = "javaee"+s2;
+
+        System.out.println(s3==s4);//true
+        System.out.println(s3==s5);//false
+        System.out.println(s3==s6);//false
+        System.out.println(s5==s6);//false
+
+        String s7 = s5.intern();
+        System.out.println(s3==s7);//true
+
+
+    }
     /*
     String的实例化方式：
         1.字面量
