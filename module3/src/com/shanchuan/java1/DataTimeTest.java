@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 
@@ -13,6 +14,43 @@ import java.util.Date;
  * @Data: 22:122020/7/16
  */
 public class DataTimeTest {
+    /*
+     java.util.Calendar(日历)类
+     Calendar是一个抽象基类，主用用于完成日期字段之间相互操作的功能。
+     获取Calendar实例的方法
+         使用Calendar.getInstance()方法
+         调用它的子类GregorianCalendar的构造器。
+     一个Calendar的实例是系统时间的抽象表示，通过get(int field)方法来取得想
+    要的时间信息。比如YEAR、MONTH、DAY_OF_WEEK、HOUR_OF_DAY 、
+    MINUTE、SECOND
+         public void set(int field,int value)
+         public void add(int field,int amount)
+         public final Date getTime()
+         public final void setTime(Date date)
+     注意:
+         获取月份时：一月是0，二月是1，以此类推，12月是11
+         获取星期时：周日是1，周二是2 ， 。。。。周六是7
+     */
+    @Test
+    public void test4() {
+        Calendar instance = Calendar.getInstance();
+        //get
+        System.out.println(instance.get(Calendar.DAY_OF_MONTH));
+        System.out.println(instance.get(Calendar.DAY_OF_WEEK));
+        //set
+        instance.set(Calendar.DAY_OF_MONTH,22);
+        System.out.println(instance.get(Calendar.DAY_OF_MONTH));
+        //add
+        instance.add(Calendar.DAY_OF_MONTH,22);
+        System.out.println(instance.get(Calendar.DAY_OF_MONTH));
+        //getTime()
+        Date time = instance.getTime();
+        System.out.println(time);
+        //setTime()
+        instance.setTime(new Date());
+        System.out.println(instance.get(Calendar.DAY_OF_MONTH));
+
+    }
     /*java.text.SimpleDateFormat类是一个不与语言环境有关的方式来格式化和解析日期的具体类。
      它允许进行格式化：日期文本、解析：文本日期
      实例化：
