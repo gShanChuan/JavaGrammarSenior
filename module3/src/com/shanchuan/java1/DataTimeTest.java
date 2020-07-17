@@ -1,6 +1,9 @@
 package com.shanchuan.java1;
 
 import org.junit.Test;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -10,6 +13,40 @@ import java.util.Date;
  * @Data: 22:122020/7/16
  */
 public class DataTimeTest {
+    /*java.text.SimpleDateFormat类是一个不与语言环境有关的方式来格式化和解析日期的具体类。
+     它允许进行格式化：日期文本、解析：文本日期
+     实例化：
+         SimpleDateFormat() ：默认的模式和语言环境创建对象
+         public SimpleDateFormat(String pattern)：该构造方法可以用参数pattern
+        指定的格式创建一个对象。
+     格式化：
+         public String format(Date date)：方法格式化时间对象date
+     解析：
+         public Date parse(String source)：从给定字符串的开始解析文本，以生成
+    一个日期。
+    */
+    @Test
+    public void test3() throws ParseException {
+        //实例化 默认构造器
+        SimpleDateFormat sdf = new SimpleDateFormat();
+        Date date = new Date();
+        //格式化
+        String format = sdf.format(date);//20-7-17 下午8:41
+        System.out.println(format);
+        //解析 按格式书写
+        String str = "20-7-17 下午8:23";
+        Date date1 = sdf.parse(str);
+        System.out.println(date1);
+
+        //实例化 指定格式 构造器
+        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        String format1 = sdf1.format(date);//2020-07-17 08:41:00
+        System.out.println(format1);
+        //解析 按格式书写
+        System.out.println(sdf1.parse("2020-07-17 08:41:00"));
+
+
+    }
     /*
      java.util.Date类:表示特定的瞬间，精确到毫秒
         -->java.sql.Date类
