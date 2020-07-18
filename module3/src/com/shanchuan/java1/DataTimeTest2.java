@@ -3,6 +3,9 @@ package com.shanchuan.java1;
 import org.junit.Test;
 
 import java.time.*;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.time.temporal.TemporalAccessor;
 
 /**
  * @Description: JDK 8中的日期时间API
@@ -10,6 +13,33 @@ import java.time.*;
  * @Data: 21:492020/7/17
  */
 public class DataTimeTest2 {
+    /*
+    java.time.format.DateTimeFormatter 类：该类提供了三种格式化方法：
+         预定义的标准格式。如：
+        ISO_LOCAL_DATE_TIME;ISO_LOCAL_DATE;ISO_LOCAL_TIME
+         本地化相关的格式。如：ofLocalizedDateTime(FormatStyle.LONG)
+         自定义的格式。如：ofPattern(“yyyy-MM-dd hh:mm:ss”)
+    ofPattern(String pattern) 静态方法,返回一个指定字符串格式的DateTimeFormatter
+    format(TemporalAccessor t) 格式化一个日期、时间，返回字符串
+    parse(CharSequence text) 将指定格式的字符序列解析为一个日期、时间
+     */
+    @Test
+    public void test3(){
+        //1.预定义的标准格式
+        DateTimeFormatter formatter1 = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+        //格式化
+        String str1 = formatter1.format(LocalDateTime.now());
+        System.out.println(str1);
+        //解析
+        TemporalAccessor parse = formatter1.parse("2020-07-18T13:47:46.349");
+        System.out.println(parse);
+        //2.本地化相关的格式
+        DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG);
+        //3.自定义
+        DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
+        System.out.println(formatter2.format(LocalDateTime.now()));
+
+    }
     /*
     Instant：时间线上的一个瞬时点。 这可能被用来记录应用程序中的事件时间戳。
     在UNIX中，这个数从1970年开始，以秒为的单位；同样的，在Java中，也是从1970年开始，但以毫秒为单位。
