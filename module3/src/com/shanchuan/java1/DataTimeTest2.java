@@ -2,9 +2,7 @@ package com.shanchuan.java1;
 
 import org.junit.Test;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
+import java.time.*;
 
 /**
  * @Description: JDK 8中的日期时间API
@@ -12,6 +10,28 @@ import java.time.LocalTime;
  * @Data: 21:492020/7/17
  */
 public class DataTimeTest2 {
+    /*
+    Instant：时间线上的一个瞬时点。 这可能被用来记录应用程序中的事件时间戳。
+    在UNIX中，这个数从1970年开始，以秒为的单位；同样的，在Java中，也是从1970年开始，但以毫秒为单位。
+        now() 静态方法，返回默认UTC时区的Instant类的对象
+        ofEpochMilli(long epochMilli) 静态方法，返回在1970-01-01 00:00:00基础上加上指定毫秒
+        数之后的Instant类的对象
+        atOffset(ZoneOffset offset) 结合即时的偏移来创建一个 OffsetDateTime
+        toEpochMilli() 返回1970-01-01 00:00:00到当前时间的毫秒数，即为时间戳
+     */
+    @Test
+    public void test2(){
+        //获取本初子午线的当前时间
+        Instant instant = Instant.now();
+        System.out.println(instant);
+        //设置时区偏移量
+        OffsetDateTime offsetDateTime = instant.atOffset(ZoneOffset.ofHours(8));
+        System.out.println(offsetDateTime);
+        //返回1970-01-01 00:00:00到当前时间的毫秒数，即为时间戳
+        System.out.println(instant.toEpochMilli());
+        //
+        System.out.println(Instant.ofEpochMilli(1595050613795l));
+    }
     /*
     LocalDate、LocalTime、LocalDateTime类的使用：
     实例化：
