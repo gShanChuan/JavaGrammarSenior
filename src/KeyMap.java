@@ -14,4 +14,7 @@ public class KeyMap {
  * 5.Generate：Alt+Insert
  * 6.idea搜索jar中的类:Ctrl+N
  * 7.返回上次跳转的位置 Back/Forward: ctrl+alt+方向键
+ * 8.大小写切换: cmd + shift + U
+ * 9.cmd + R：文件内替换
+ *   cmd + F：文件内查找
  */
