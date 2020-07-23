@@ -66,6 +66,7 @@ public class CollectionTest {
         System.out.println(coll);
         //removeAll() 有啥移啥 最后结果为差集
         System.out.println("**************removeAll************");
+        coll1.add('f');
         coll.removeAll(coll1);
         System.out.println(coll);
         //retainAll() 有啥不移啥 最后结果为交集
