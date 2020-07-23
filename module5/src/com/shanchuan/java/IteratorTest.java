@@ -16,8 +16,9 @@ import java.util.Iterator;
  * @Data: 11:442020/7/23
  */
 public class IteratorTest {
+    //hasnext和next配合使用
     @Test
-    public void test(){
+    public void test1(){
         Collection coll = new ArrayList();
         //add()
         System.out.println("**************add************");
@@ -43,6 +44,29 @@ public class IteratorTest {
         while (iterator.hasNext()){
             System.out.println(iterator.next());
         }
+    }
+
+    //iterator中的remove方法
+    @Test
+    public void test2(){
+        Collection coll = new ArrayList();
+        //add()
+        System.out.println("**************add************");
+        coll.add(123);
+        coll.add("aa");
+        coll.add("AA");
+        coll.add(new Date());
+
+        //iterator中的remove方法
+        System.out.println("**************iterator中的remove方法************");
+        Iterator iterator = coll.iterator();
+        while (iterator.hasNext()){
+            Object next = iterator.next();
+            if("aa".equals(next))
+                iterator.remove();
+        }
+
+        System.out.println(coll);
 
     }
 }
