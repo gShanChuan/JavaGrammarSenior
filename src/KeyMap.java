@@ -17,4 +17,5 @@ public class KeyMap {
  * 8.大小写切换: cmd + shift + U
  * 9.cmd + R：文件内替换
  *   cmd + F：文件内查找
+ * 10.CTRL+H：查看继承顺序
  */
