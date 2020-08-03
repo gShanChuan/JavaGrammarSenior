@@ -180,6 +180,7 @@ public class MapTest {
 
         System.out.println("***Collection values()***");
         Collection values = map.values();
+        System.out.println(values.getClass());
         Iterator iterator1 = values.iterator();
         while (iterator1.hasNext()){
             System.out.println(iterator1.next());
