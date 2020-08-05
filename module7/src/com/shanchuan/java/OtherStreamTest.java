@@ -12,6 +12,7 @@ import java.io.*;
  * 2.打印流
  * 3，数据流
  *
+ *
  * @Author: ShanChuan
  * @Data: 12:592020/8/4
  */
@@ -63,8 +64,8 @@ public class OtherStreamTest {
     }
 
     /*
-    实现将基本数据类型的数据格式转化为字符串输出
-    打印流：PrintStream和PrintWriter
+    实现将基本数据类型的数据格式转化为字符串输出
+    打印流：PrintStream和PrintWriter
          提供了一系列重载的print()和println()方法，用于多种数据类型的输出
          PrintStream和PrintWriter的输出不会抛出IOException异常
          PrintStream和PrintWriter有自动flush功能
@@ -96,6 +97,49 @@ public class OtherStreamTest {
                 ps.close();
             }
         }
+
+    }
+
+    /*
+        数据流：DataInputStream 和 DataOutputStream
+        用于读取或写出基本数据类型的变量或者字符串
+     */
+    @Test
+    public void test3() {
+        //DataInputStream
+        DataOutputStream dos = null;
+        try {
+            dos = new DataOutputStream(new FileOutputStream("data.txt"));
+
+            dos.writeUTF("高山川");
+            dos.writeInt(23);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if(dos!=null)
+                    dos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        //DataOutputStream
+        DataInputStream dis = null;
+        try {
+            dis = new DataInputStream(new FileInputStream("data.txt"));
+            System.out.println(dis.readUTF());
+            System.out.println(dis.readInt());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if(dis!=null)
+                    dis.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
 
     }
 }
