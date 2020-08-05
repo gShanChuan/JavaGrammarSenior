@@ -9,6 +9,10 @@ import java.io.*;
  * 处理流之一：缓冲流的使用
  *
  * 作用：提高流的读取、写入速度
+ *
+ * BufferedReader : readLine
+ * BufferedWriter: write + newline
+ *
  * @Author: ShanChuan
  * @Data: 10:282020/8/4
  */
