@@ -17,7 +17,6 @@ public class Person extends Creature<String> implements Comparable<String> , MyI
     private Person(String name){
         this.name=name;
     }
-
     Person(String name,int age){
         this.name=name;
         this.age=age;
@@ -30,7 +29,10 @@ public class Person extends Creature<String> implements Comparable<String> , MyI
     public String display(String interests,int age){
         return interests;
     }
-
+    private static int sMethod(){
+        System.out.println("i am person class");
+        return 0;
+    }
     @Override
     public int compareTo(String o) {
         return 0;
